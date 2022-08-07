@@ -1,7 +1,6 @@
-<% layout('layouts/boilerplate') %> 
+<% layout('layouts/boilerplate') %>
 
-<!-- <body>
-    <h1>Add New Campground</h1>
+<!-- <h1>Add New Campground</h1>
     <form action="/campgrounds" method ="POST">
         <div>
             <label for="title">Title</label>
@@ -13,42 +12,113 @@
         </div>
         <button>Add Campground</button>
     </form>
-    <a href="/campgrounds">All campgrounds</a>
-</body>
-</html> -->
+    <a href="/campgrounds">All campgrounds</a> -->
 
 <div class="row">
-    <h1 class="text-center">New Campground</h1>
-    <div class="col-6 offset-3">
-        <form action="/campgrounds" method ="POST">
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" id="title" class="form-control" name="campground[title]">
-        </div>
-        <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input type="text" id="location" class="form-control"name="campground[location]">
-            </div>
-        <div class="mb-3">
-                <label for="image" class="form-label">Image Url</label>
-                <input type="text" id="image" class="form-control"name="campground[image]">
-        </div>
-        <div class="mb-3">
-            <label for="price" class="form-label">Campground Price</label>
-            <div class="input-group">
-            <span class="input-group-text" id="price-label">$</span>
-            <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label">
-        </div>
-    </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description Url</label>
-            <textarea type="text" id="image" class="form-control"name="campground[image]"></textarea>
-        </div>
+  <h1 class="text-center">New Campground</h1>
+  <div class="col-md-6 offset-md-3">
+    <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          name="campground[title]"
+          required
+        />
+        <div class="valid-feedback">Looks Nice</div>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input
+          type="text"
+          id="location"
+          class="form-control"
+          name="campground[location]"
+          required
+        />
+        <div class="valid-feedback">Looks Nice</div>
+      </div>
+     
 
-    <div class="mb-3">
-        <button class="btn btn-success">Add Campground</button>
+      
+      <!-- <input type="file" name="image" multiple> -->
+      <!-- <div class="mb-3">
+        <label for="image" class="form-label">Image Url</label>
+        <input
+          type="text"
+          id="image"
+          class="form-control"
+          name="campground[image]"
+          required
+        />
+        <div class="valid-feedback">Looks Nice</div>
+      </div> -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Campground Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">$</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="campground[price]"
+            required
+          />
+          <div class="valid-feedback">Looks Nice</div>
         </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description Url</label>
+        <textarea
+          type="text"
+          id="description"
+          class="form-control"
+          name="campground[description]"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks Nice</div>
+      </div>
+      <div class="form-label">
+        <input type="file" class="form-control" id="customFile" name="image" multiple>
+        <label class="form-label" for="customFile">
+        </label>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-success">Add Campground</button>
+      </div>
     </form>
-        <a href="/campgrounds">All campgrounds</a>
-    </div>
-</div> -->
+    <a href="/campgrounds">All campgrounds</a>
+  </div>
+</div>
+
+<!-- <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (() => {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".validated-form");
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script> -->
