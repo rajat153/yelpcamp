@@ -85,7 +85,7 @@ const sessionConfig ={
 }
 app.use(session(sessionConfig))
 app.use(flash())
-app.use(helmet())
+
 
 
 const scriptSrcUrls = [
@@ -95,7 +95,8 @@ const scriptSrcUrls = [
   'https://api.mapbox.com/',
   'https://kit.fontawesome.com/',
   'https://cdnjs.cloudflare.com/',
-  'https://cdn.jsdelivr.net/'
+  'https://cdn.jsdelivr.net/',
+  'https://res.cloudinary.com/rajat153/'
 ];
 const styleSrcUrls = [
   'https://kit-free.fontawesome.com/',
@@ -104,15 +105,17 @@ const styleSrcUrls = [
   'https://api.tiles.mapbox.com/',
   'https://fonts.googleapis.com/',
   'https://use.fontawesome.com/',
-  'https://cdn.jsdelivr.net/'  // I had to add this item to the array 
+  'https://cdn.jsdelivr.net/' ,
+  'https://res.cloudinary.com/rajat153/' // I had to add this item to the array 
 ];
 const connectSrcUrls = [
   'https://api.mapbox.com/',
   'https://a.tiles.mapbox.com/',
   'https://b.tiles.mapbox.com/',
-  'https://events.mapbox.com/'
+  'https://events.mapbox.com/',
+  'https://res.cloudinary.com/rajat153/'
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = ['https://res.cloudinary.com/rajat153/'];
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -128,9 +131,12 @@ app.use(
         'data:',
         'https://res.cloudinary.com/rajat153/', //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
         'https://images.unsplash.com/',
-        'https://i.picsum.photo'
+        'https://i.picsum.photos',
+        'https://picsum.photos/200',
       ],
-      fontSrc: ["'self'", ...fontSrcUrls]
+      fontSrc: ['self', ...fontSrcUrls],
+      mediaSrc   :  ['https://res.cloudinary.com/rajat153/' ],
+      childSrc   : [ "blob:" ]
     }
   })
 );

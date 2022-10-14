@@ -15,6 +15,7 @@ module.exports.createReview = async(req,res)=>{
   
   }
 
+  // eslint-disable-next-line no-undef
   module.exports.deleteReview = async(req,res)=>{
     //res.send("DELETE")
     const {id,reviewId} = req.params;
